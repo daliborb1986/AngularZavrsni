@@ -1,5 +1,5 @@
-<i class="fa-brands fa-facebook-f"></i>
-<i class="fa-brands fa-twitter"></i>
-<i class="fa-brands fa-pinterest-p"></i>
-<i class="fa-brands fa-youtube"></i>
-<i class="fa-brands fa-instagram"></i>
+<div class="socialIcons">
+  <div *ngFor="let icon of socialIcons" class="">
+    <img ngClass="socialIconsImages my-2" [src]="icon.path" [alt]="icon.name" />
+  </div>
+</div>
