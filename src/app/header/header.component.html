@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid p-0">
+    <div
+      class="collapse navbar-collapse d-flex justify-content-around py-2"
+      id="navbarNav"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="logoImage">
+        <img id="logoImg" src="/assets/flowerLogo.png" alt="Logo image" />
+      </div>
+
+      <div class="navbarLinks">
+        <a
+          class="link-underline link-underline-opacity-0 mx-2 link-secondary"
+          href="#"
+          >Home</a
+        >
+        <a
+          class="link-underline link-underline-opacity-0 mx-2 link-secondary"
+          href="#"
+          >About</a
+        >
+
+        <a
+          class="link-underline link-underline-opacity-0 mx-2 link-secondary"
+          href="#"
+          >Shop</a
+        >
+        <a
+          class="link-underline link-underline-opacity-0 mx-2 link-secondary"
+          href="#"
+          >Contact</a
+        >
+      </div>
+      <div
+        class="navbarIcons position-relative d-flex justify-content-center align-items-center"
+      >
+        <mat-icon>account_circle</mat-icon>
+        <img src="/assets/arrowdown.png" width="15px" height="15px" alt="" />
+        <i class="material-icons" matBadge="0">shopping_cart</i>
+        <span class="cdk-visually-hidden proba"></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<header>
+  <div class="container-fluid header-background position-relative p-0">
+    <img class="img-fluid" [src]="ImagePath" alt="Background Image" />
+
+    <div class="textOverImage p-absolute top">
+      <div
+        class="textTitle text-end position-absolute position-absolute top-50 end-0 translate-middle-y mx-5"
+      >
+        <h4>March into Spring</h4>
+        <p class="paragraphTitle">
+          Bring the meadow to them with a daisy bouquet.
+        </p>
+        <button class="btn btn-secondary titleButton">SHOP FLOWERS</button>
+      </div>
+    </div>
+  </div>
+</header>
