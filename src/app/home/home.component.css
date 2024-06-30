@@ -1,3 +1,38 @@
 .aboutUsText {
     font-size: 0.75rem;
 }
+#btnFormSend {
+    font-size: 0.875rem;
+}
+#name, #email {
+   flex: 1;
+}
+#name{
+    margin-right: 10px;
+}
+#subscribeEmail {
+    width: 50%;
+    box-sizing: border-box;
+}
+.form input, textarea {
+    font-size: 0.75rem;
+    outline: 0;
+    border-width: 0 0 1px;
+}
+.subscribe-container label, input, button {
+    font-size: 0.75rem;
+}
+.nameEmail {
+    flex-wrap: wrap;
+}
+@media (max-width : 767px) {
+    #name, #email{
+        flex: 1 1 100%
+    }
+    #name{
+        margin-right: 0;
+    }
+}
+.sendGiftContainer {
+    background-color: #feaeb8;
+}

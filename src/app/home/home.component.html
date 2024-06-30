@@ -36,7 +36,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-5 aboutUsText">
+    <div class="col-lg-5 col-md-4 mt-sm-4 aboutUsText">
       <p>
         Send us a message <br />
         A: Laze Nancica 7, 21000 Novi Sad
@@ -53,11 +53,75 @@
       <p>Store Policy /</p>
       <p>Payment Methods /</p>
     </div>
-    <div class="col-lg-7">
-      <form>
-        <label for="name"></label>
-        <input type="text" id="name" name="name" placeholder="Name" />
+    <div class="col-lg-7 col-md-8">
+      <form class="form mt-5 text-center">
+        <div class="form-group d-flex flex-column">
+          <div class="nameEmail d-flex">
+            <label for="name"></label>
+            <input type="text" id="name" name="name" placeholder="Name" />
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Email" />
+          </div>
+
+          <label for="subject"></label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+          /><br />
+          <label for="message"></label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message"
+          ></textarea>
+        </div>
+        <button
+          id="btnFormSend"
+          class="btn btn-outline-secondary mt-2 px-3 text-uppercase"
+        >
+          Send
+        </button>
       </form>
+      <div class="subscribe-container d-flex flex-column mt-5">
+        <div class="labelDiv">
+          <label class="mb-2" for="subscribeEmail">Get our newsletter</label>
+        </div>
+        <div class="inputDiv d-flex">
+          <input
+            class="me-3"
+            type="email"
+            id="subscribeEmail"
+            name="subscribeEmail"
+            placeholder="Enter your email here"
+          />
+          <div class="btnSubscribe">
+            <button class="btn btn-dark btn-sm">Subscribe Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 p-0 d-flex">
+      <div
+        class="sendGiftContainer d-flex flex-column align-items-center justify-content-center flex-fill m-0 text-light p-5"
+      >
+        <h5>Send get Well Wishes</h5>
+        <p>
+          Brighten their recovery with beautiful florals, plants and gifts that
+          will express your well wishes.
+        </p>
+        <button class="btn btn-secondary text-uppercase btn-sm rounded-pill">
+          Shop get well flowers & gifts
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-6 p-0 flex-fill">
+      <img class="img-fluid" [src]="ImagePath" alt="Flower image" />
     </div>
   </div>
 </div>

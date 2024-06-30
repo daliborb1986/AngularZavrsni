@@ -3,18 +3,23 @@ import { Flower } from '../flowers';
 import { FlowerComponent } from '../flower/flower.component';
 import { CommonModule } from '@angular/common';
 
-import {ChangeDetectionStrategy} from '@angular/core';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { ChangeDetectionStrategy } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [FlowerComponent, CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [
+    FlowerComponent,
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+  ],
 })
 export class HomeComponent {
   flowers: Flower[] = [
@@ -67,5 +72,9 @@ export class HomeComponent {
       imgSrc: '/assets/flower8.jpeg',
     },
   ];
-  constructor() {}
+  ImagePath: string;
+
+  constructor() {
+    this.ImagePath = '/assets/FTD_SplitBanner_Merx_1.png';
+  }
 }
