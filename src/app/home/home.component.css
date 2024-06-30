@@ -32,7 +32,29 @@
     #name{
         margin-right: 0;
     }
+    .inputDiv{
+        flex-direction: column;
+    }
+    #subscribeEmail {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .btnSubscribe {
+        margin-bottom: 10px;
+    }
+
 }
 .sendGiftContainer {
     background-color: #feaeb8;
+}
+.sendWishesImage {
+    object-fit: contain;
+}
+.getWellWishesImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sendWishesContainer{
+    min-height: 400px;
 }
