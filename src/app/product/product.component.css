@@ -1,0 +1,18 @@
+#btnPrevious, #btnNext {
+    border: 0;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+#productDescription {
+    font-size: 14px;
+}
+#addToCart {
+    font-size: 12px;
+}
+#quantity {
+    width: 75px;
+}
+#quantityText {
+    font-size: 14px;
+}

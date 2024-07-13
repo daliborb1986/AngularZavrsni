@@ -1,0 +1,36 @@
+<div class="container mt-5 d-flex justify-content-between">
+  <div class="productLinkTextContainer">
+    <p class="productLinkText mt-2">{{currentUrl}}</p>
+  </div>
+  <div
+    class="btnScrollingButtonsContainer d-flex justify-content-center align-items-center"
+  >
+    <button id="btnPrevious">< Prev</button>
+    <p class="mt-2">|</p>
+    <button id="btnNext">Next ></button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 offset-3" *ngIf="product">
+      <div class="imageContainer d-flex">
+        <img class="img-fluid" [src]="product.imgSrc" [alt]="product.title" />
+      </div>
+    </div>
+    <div class="col-md-6" *ngIf="product">
+      <div class="textContainer">
+        <h6 class="fw-bold">
+          {{ product.title }} <br />
+          {{ product.price }} {{ product.currency }}
+        </h6>
+        <p id="productDescription">{{ product.description }}</p>
+        <hr />
+        <label id="quantityText" for="quantity">Quantity</label> <br />
+        <input type="number" id="quantity" min="1" /> <br />
+        <button id="addToCart" class="btn btn-dark mt-2">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+

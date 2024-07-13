@@ -1,14 +1,10 @@
-// export class Flower {
-//     public id: number;
-//     public title: string;
-//     public imgSrc?: string
-// }
 
 export class Flower {
   constructor(
     public id: number,
     public title: string,
-    public price: string,
+    public currency: string,
+    public price: number,
     public imgSrc?: string
   ) {}
 }

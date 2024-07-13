@@ -22,16 +22,32 @@
       </div>
 
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link" routerLink="/">Home</a>
         </li>
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a class="nav-link" href="#">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link" routerLink="/shop">Shop</a>
         </li>
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
@@ -62,24 +78,4 @@
   </div>
 </nav>
 
-<header>
-  <div class="container-fluid position-relative backgroundImageContainer p-0">
-    <img
-      class="img-fluid backgroundImage"
-      [src]="ImagePath"
-      alt="Background Image"
-    />
 
-    <div class="textOverImage p-absolute top">
-      <div
-        class="textTitle text-end position-absolute position-absolute top-50 end-0 translate-middle-y mx-5"
-      >
-        <h4>March into Spring</h4>
-        <p class="paragraphTitle">
-          Bring the meadow to them with a daisy bouquet.
-        </p>
-        <button class="btn btn-secondary titleButton">SHOP FLOWERS</button>
-      </div>
-    </div>
-  </div>
-</header>

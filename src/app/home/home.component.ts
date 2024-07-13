@@ -3,11 +3,10 @@ import { Flower } from '../flowers';
 import { FlowerComponent } from '../flower/flower.component';
 import { CommonModule } from '@angular/common';
 
-import { ChangeDetectionStrategy } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -27,55 +26,68 @@ export class HomeComponent {
     {
       id: 1,
       title: 'Fiesta Bouquet',
-      price: '$60',
+      currency: '$',
+      price: 60,
       imgSrc: '/assets/flower1.jpeg',
     },
     {
       id: 2,
       title: 'Alluring Elegance Bouquet',
-      price: '$72',
+      currency: '$',
+      price: 72,
       imgSrc: '/assets/flower2.jpeg',
     },
     {
       id: 3,
       title: 'Beyond Blue Bouquet',
-      price: '$55',
+      currency: '$',
+      price: 55,
       imgSrc: '/assets/flower3.jpeg',
     },
     {
       id: 4,
       title: 'Mixed Roses',
-      price: '$35',
+      currency: '$',
+      price: 35,
       imgSrc: '/assets/flower4.jpeg',
     },
     {
       id: 5,
       title: 'Belle of the Ball Bouquet',
-      price: '$45',
+      currency: '$',
+      price: 45,
       imgSrc: '/assets/flower5.jpeg',
     },
     {
       id: 6,
       title: 'Rainbow Garden',
-      price: '$50',
+      currency: '$',
+      price: 50,
       imgSrc: '/assets/flower6.jpeg',
     },
     {
       id: 7,
       title: 'Best Day Bouquet',
-      price: '$61',
+      currency: '$', 
+      price: 61,
       imgSrc: '/assets/flower7.jpeg',
     },
     {
       id: 8,
       title: 'Smiles & Sunshine',
-      price: '$45',
+      currency: '$',
+      price: 45,
       imgSrc: '/assets/flower8.jpeg',
     },
   ];
   ImagePath: string;
+  ImagePathHeader: string;
 
-  constructor() {
+  constructor(private router: Router) {
+    this.ImagePathHeader = '/assets/flowerBackground1.jpg'
     this.ImagePath = '/assets/FTD_SplitBanner_Merx_1.png';
+  }
+  onLoadShop() {
+    this.router.navigate(['/shop']);
   }
 }

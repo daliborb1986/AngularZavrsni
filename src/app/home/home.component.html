@@ -1,3 +1,24 @@
+<header>
+  <div class="container-fluid position-relative backgroundImageContainer p-0">
+    <img
+      class="img-fluid backgroundImage"
+      [src]="ImagePathHeader"
+      alt="Background Image"
+    />
+
+    <div class="textOverImage p-absolute top">
+      <div
+        class="textTitle text-end position-absolute position-absolute top-50 end-0 translate-middle-y mx-5"
+      >
+        <h4>March into Spring</h4>
+        <p class="paragraphTitle">
+          Bring the meadow to them with a daisy bouquet.
+        </p>
+        <button class="btn btn-secondary titleButton">SHOP FLOWERS</button>
+      </div>
+    </div>
+  </div>
+</header>
 <div class="container-fluid mt-5">
   <div class="row">
     <div class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
@@ -31,7 +52,9 @@
 </div>
 
 <div class="container-fluid d-flex justify-content-center">
-  <div class="btn btn-outline-secondary mt-2">Load More</div>
+  <button class="btn btn-outline-secondary mt-2" (click)="onLoadShop()">
+    Load More
+  </button>
 </div>
 
 <div class="container">
@@ -121,7 +144,13 @@
       </div>
     </div>
     <div class="col-md-6 p-0 d-flex sendWishesContainer">
-      <div class="getWellWishesImageContainer d-flex"><img class="img-fluid sendWishesImage " [src]="ImagePath" alt="Flower image" /></div>
+      <div class="getWellWishesImageContainer d-flex">
+        <img
+          class="img-fluid sendWishesImage"
+          [src]="ImagePath"
+          alt="Flower image"
+        />
+      </div>
     </div>
   </div>
 </div>
