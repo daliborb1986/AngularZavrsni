@@ -1,21 +1,21 @@
 <div class="container mt-5 d-flex justify-content-between">
   <div class="productLinkTextContainer">
-    <p class="productLinkText mt-2">{{currentUrl}}</p>
+    <p class="productLinkText mt-2">{{ currentUrl }}</p>
   </div>
   <div
     class="btnScrollingButtonsContainer d-flex justify-content-center align-items-center"
   >
-    <button id="btnPrevious">< Prev</button>
+    <button id="btnPrevious" (click)="previousProduct()">< Prev</button>
     <p class="mt-2">|</p>
-    <button id="btnNext">Next ></button>
+    <button id="btnNext" (click)="nextProduct()">Next ></button>
   </div>
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-3 offset-3" *ngIf="product">
-      <div class="imageContainer d-flex">
-        <img class="img-fluid" [src]="product.imgSrc" [alt]="product.title" />
+  <div class="row containerHeight">
+    <div class="col-md-3 offset-md-2 imageContainer" *ngIf="product">
+      <div class="d-flex justify-content-center">
+        <img id="productImage" class="img-fluid" [src]="product.imgSrc" [alt]="product.title" />
       </div>
     </div>
     <div class="col-md-6" *ngIf="product">
@@ -33,4 +33,3 @@
     </div>
   </div>
 </div>
-

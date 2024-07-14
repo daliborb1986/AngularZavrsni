@@ -16,3 +16,10 @@
 #quantityText {
     font-size: 14px;
 }
+.imageContainer {
+    min-width: 150px;
+}
+
+.containerHeight {
+    height: 85vh;
+}

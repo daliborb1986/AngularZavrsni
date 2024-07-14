@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductComponent implements OnInit {
   product: Product | undefined;
-  currentUrl: string
+  productsInCategory: Product[];
+  currentUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,10 +23,46 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const productId = +params.get('id')!;
-      this.product = this.productService.getProductById(productId)
-    })
-    this.currentUrl = this.router.url
+    this.route.paramMap.subscribe((params) => {
+      const category = params.get('category');
+      const encodedTitle = params.get('title');
+      if (category && encodedTitle) {
+        const title = encodedTitle.replace(/-/g, ' ');
+        this.productsInCategory =
+          this.productService.getProductByCategory(category);
+        this.product = this.productService.getProductByTitle(title);
+
+        // let putanja = this.route.snapshot.params['title']
+        this.currentUrl = this.router.url;
+      }
+    });
+  }
+  navigateToProduct(index: number): void {
+    const newProduct = this.productsInCategory[index];
+    this.router.navigate([
+      '/shop',
+      newProduct.categoryId,
+      newProduct.title.replace(/\s+/g, '-'),
+    ]);
+  }
+  previousProduct(): void {
+    const currentIndex = this.productsInCategory.findIndex(
+      (p) => p.title === this.product?.title
+    );
+    const previousIndex =
+      currentIndex === 0
+        ? this.productsInCategory.length - 1
+        : currentIndex - 1;
+    this.navigateToProduct(previousIndex);
+  }
+  nextProduct(): void {
+    const currentIndex = this.productsInCategory.findIndex(
+      (p) => p.title === this.product?.title
+    );
+    const nextIndex =
+      currentIndex === this.productsInCategory.length - 1
+        ? 0
+        : currentIndex + 1;
+    this.navigateToProduct(nextIndex);
   }
 }

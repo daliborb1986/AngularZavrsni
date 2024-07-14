@@ -6,11 +6,11 @@ import { Product } from '../product';
 import { RouterLink } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
@@ -37,12 +37,11 @@ export class ShopComponent implements OnInit {
         this.selectCategory(this.categories[0])
       }
     })
-    // this.selectCategory(this.categories[0]);
   }
 
   selectCategory(category: Category): void {
+    console.log('Selected Category:', category);
     this.router.navigate(['/shop', category.name.toLowerCase()])
-    
   }
   selectCategoryByName(categoryName: string): void {
     const category = this.categories.find(c => c.name.toLowerCase() === categoryName.toLowerCase())
@@ -52,3 +51,4 @@ export class ShopComponent implements OnInit {
     }
   }
 }
+

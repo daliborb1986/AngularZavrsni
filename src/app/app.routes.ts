@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './shop/shop.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -11,10 +11,12 @@ export const routes: Routes = [
     component: ShopComponent,
     children: [
       {
-        path: 'category/:category',
+        path: ':category',
         component: CategoryComponent,
-        children: [{ path: 'product/:id', component: ProductComponent }],
       },
     ],
   },
+  { path: 'shop/:category/:title', component: ProductComponent },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/not-found' },
 ];
