@@ -1,0 +1,29 @@
+.row {
+    height: 80vh;
+    background-image: url(/assets/loginBackground.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#signUp {
+    text-decoration: underline;
+    color: #000;
+    font-size: 12px;
+}
+.titleText{
+    font-size: 14px;
+}
+.formContainerInput{
+    width: 250px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+span {
+    color: red;
+    font-size: 10px;
+}
+span > a {
+    color: #000;
+    font-size: 12px;
+}
