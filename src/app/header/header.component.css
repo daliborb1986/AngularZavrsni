@@ -22,3 +22,8 @@
   color: black;
   font-size: 25px;
 }
+.loginLink {
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+}
