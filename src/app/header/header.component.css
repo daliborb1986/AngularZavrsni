@@ -18,3 +18,7 @@
   height: 60vh;
   object-fit: cover;
 }
+.iconLinks {
+  color: black;
+  font-size: 25px;
+}
