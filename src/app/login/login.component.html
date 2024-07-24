@@ -22,7 +22,10 @@
                 ngModel
                 name="email"
                 id="email"
+                required
+                #email="ngModel"
               />
+              <span class="help-block" *ngIf="!email.valid && email.touched">Email is required <br></span>
 
               <label class="titleText" for="password">Password</label><br />
               <input
@@ -32,11 +35,15 @@
                 id="password"
                 class="form-control"
                 autocomplete="off"
+                required
+                minlength="5"
+                #password="ngModel"
               />
+              <span class="help-block" *ngIf="!password.valid && password.touched">Password id required</span>
             </div>
             <br />
             <p class="titleText">Forgot password?</p>
-            <button class="btn btn-secondary w-100 titleText">Log In</button>
+            <button id="btnLogIn" type="submit" [disabled]="!myForm.valid" class="btn btn-light w-100 titleText border-0">Log In</button>
           </form>
         </div>
       </div>

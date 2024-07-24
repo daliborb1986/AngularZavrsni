@@ -11,7 +11,8 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   @ViewChild('myForm') signupForm: NgForm;
-onSubmit() {
+  
+  onSubmit() {
   console.log(this.signupForm)
 }
 }
