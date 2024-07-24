@@ -16,5 +16,6 @@ export class LoginComponent {
   
   onSubmit() {
   console.log(this.signupForm)
+  this.signupForm.reset()
 }
 }

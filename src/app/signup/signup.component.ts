@@ -14,6 +14,6 @@ export class SignupComponent {
   @ViewChild('myForm') signupForm: NgForm;
 onSubmit() {
   console.log(this.signupForm)
+  this.signupForm.reset()
 }
-
 }
