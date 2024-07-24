@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import { Flower } from '../flowers';
 import { FlowerComponent } from '../flower/flower.component';
 import { CommonModule } from '@angular/common';
@@ -7,6 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +20,18 @@ import { Router } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule,
   ],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  ngOnInit(): void {
+  }
+
+  @ViewChild('myForm') signupForm: NgForm;
+
+onSubmit() {
+  console.log(this.signupForm);
+}
   flowers: Flower[] = [
     {
       id: 1,
@@ -87,6 +97,7 @@ export class HomeComponent {
     this.ImagePathHeader = '/assets/flowerBackground1.jpg'
     this.ImagePath = '/assets/FTD_SplitBanner_Merx_1.png';
   }
+  
   onLoadShop() {
     this.router.navigate(['/shop']);
   }

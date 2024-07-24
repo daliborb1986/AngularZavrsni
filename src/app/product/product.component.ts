@@ -32,7 +32,6 @@ export class ProductComponent implements OnInit {
           this.productService.getProductByCategory(category);
         this.product = this.productService.getProductByTitle(title);
 
-        // let putanja = this.route.snapshot.params['title']
         this.currentUrl = this.router.url;
       }
     });
