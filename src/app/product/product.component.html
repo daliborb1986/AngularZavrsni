@@ -27,8 +27,8 @@
         <p id="productDescription">{{ product.description }}</p>
         <hr />
         <label id="quantityText" for="quantity">Quantity</label> <br />
-        <input type="number" id="quantity" min="1" /> <br />
-        <button id="addToCart" class="btn btn-dark mt-2">Add to cart</button>
+        <input type="number" id="quantity" min="1" name="quantity" [(ngModel)]="quantity" /> <br />
+        <button id="addToCart" class="btn btn-dark mt-2" (click)="addToCart()">Add to cart</button>
       </div>
     </div>
   </div>

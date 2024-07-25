@@ -1,0 +1,24 @@
+#cartImage {
+    width: 100px;
+}
+
+#btnRemove {
+    width: 45px;
+    height: 20px;
+}
+.imageContainerText {
+    font-size: 12px;
+}
+.products {
+    border-bottom: 1px solid #cdced1;
+}
+#cartProductQuantity {
+    width: 40px;
+    height: 30px;
+}
+.bottomBorder {
+    border-bottom: 1px solid #cdced1;
+}
+.smallerText {
+    font-size: 14px;
+}

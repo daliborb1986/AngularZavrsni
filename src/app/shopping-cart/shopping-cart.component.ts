@@ -1,25 +1,44 @@
+import { Product } from './../product';
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shopping.service';
-import { Product } from '../product';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css',
 })
 export class ShoppingCartComponent implements OnInit {
-  cartProduct: Product[] = [];
-
   constructor(private shoppingService: ShoppingService) {}
+
+  cartProducts: Product[] = [];
+  totalPrice: number = 0;
+  shippingCost: number = 0;
 
   ngOnInit(): void {
     this.shoppingService.cart$.subscribe((products) => {
-      this.cartProduct = products;
+      this.cartProducts = products;
+      this.calculateTotalPrice();
     });
   }
+  calculateTotalPrice() {
+    this.totalPrice = this.cartProducts.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
+    this.shippingCost = this.totalPrice > 100 ? 0 : 100;
+  }
+
   getTotalProducts() {
     return this.shoppingService.getTotalProducts();
   }
+  removeFromCart(product: Product) {
+    this.shoppingService.removeFromCart(product);
+  }
+  // updateQuantity(product: Product, quantity: number): void {
+  //   this.shoppingService.updateQuantity(product.id, quantity);
+  // }
 }

@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FlowerService } from '../product.service';
 import { Product } from '../product';
 import { CommonModule } from '@angular/common';
+import { ShoppingService } from '../shopping.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
@@ -15,11 +17,13 @@ export class ProductComponent implements OnInit {
   product: Product | undefined;
   productsInCategory: Product[];
   currentUrl: string;
+  quantity: number = 1
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: FlowerService
+    private productService: FlowerService,
+    private shoppingService: ShoppingService
   ) {}
 
   ngOnInit(): void {
@@ -63,5 +67,10 @@ export class ProductComponent implements OnInit {
         ? 0
         : currentIndex + 1;
     this.navigateToProduct(nextIndex);
+  }
+  addToCart() {
+    if(this.product){
+      this.shoppingService.addToCart(this.product, this.quantity)
+    }
   }
 }

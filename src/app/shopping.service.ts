@@ -9,30 +9,46 @@ export class ShoppingService {
   private cartSubject = new BehaviorSubject<Product[]>([]);
   cart$ = this.cartSubject.asObservable();
 
+  private totalItemsSubject = new BehaviorSubject<number>(0);
+  totalItems$ = this.totalItemsSubject.asObservable();
+
   constructor() {}
-  addToCart(product: Product) {
+
+  
+
+  addToCart(product: Product, quantity: number) {
     const existingProduct = this.cart.find((p) => p.id === product.id);
     if (existingProduct) {
-      existingProduct.quantity + 1;
+      existingProduct.quantity += quantity;
     } else {
-      product.quantity = 1;
+      product.quantity = quantity;
       this.cart.push(product);
     }
     this.cartSubject.next(this.cart);
   }
-  getCart(): Product[] {
-    return this.cart;
+ 
+  removeFromCart(product: Product): void {
+    this.cart = this.cart.filter(p => p.id !== product.id);
+    this.cartSubject.next(this.cart);
   }
-  removeFromCart(product: Product) {
-    const index = this.cart.findIndex((p) => p.id === product.id);
-    if (index > -1) {
-      this.cart.splice(index, 1);
-    }
+  
+  updateCart(products: Product[]) {
+    this.cart = products;
+    this.cartSubject.next(this.cart)
   }
   getTotalProducts(): number {
     return this.cart.reduce((total, product) => total + product.quantity, 0);
   }
-  clearCart() {
-    this.cart = [];
+  // updateQuantity(productId: number, quantity: number): void {
+  //   const product = this.cart.find(p => p.id === productId);
+  //   if (product) {
+  //     product.quantity = quantity;
+  //     this.cartSubject.next([...this.cart]);
+  //     this.updateTotalItems();
+  //   }
+  // }
+  private updateTotalItems() {
+    const totalItems = this.cart.reduce((total, product) => total + product.quantity, 0);
+    this.totalItemsSubject.next(totalItems);
   }
 }

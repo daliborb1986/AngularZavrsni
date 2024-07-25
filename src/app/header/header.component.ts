@@ -4,6 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge'
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
+import { ShoppingService } from '../shopping.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,14 +12,16 @@ import { RouterLinkActive } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   itemsInCart : number = 0
   hidden = false
 
   ImagePath: string;
 
-  constructor() {
-    
+  constructor(private shoppingService: ShoppingService) {}
+  ngOnInit() {
+    this.shoppingService.cart$.subscribe(() => {
+      this.itemsInCart = this.shoppingService.getTotalProducts()
+    })
   }
-  ngOnInit() {}
 }

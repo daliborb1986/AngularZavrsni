@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <h2>Shopping Cart</h2>
   <div *ngIf="cartProducts.length === 0">Your cart is empty.</div>
   <div *ngIf="cartProducts.length > 0">
@@ -9,5 +9,91 @@
       </p>
     </div>
     <p>Total Products: {{ getTotalProducts() }}</p>
+  </div>
+</div> -->
+
+<div class="container">
+  <div *ngIf="cartProducts.length === 0">
+    <h5 class="text-center fw-bold mt-4">Shopping Cart is empty</h5>
+  </div>
+  <div class="list" *ngIf="cartProducts.length > 0">
+    <div class="row">
+      <div
+        class="products d-flex flex-wrap mb-2 pb-2"
+        *ngFor="let product of cartProducts"
+      >
+        <div class="col-6">
+          <div class="aboutProduct d-flex">
+            <div class="imageContainer">
+              <img
+                id="cartImage"
+                [src]="product.imgSrc"
+                [alt]="product.title"
+              />
+            </div>
+            <div class="descriptionContainer d-flex flex-column ms-2">
+              {{ product.title }}
+              <button
+                id="btnRemove"
+                class="btn smallerText mt-2 border-0 p-0"
+                (click)="removeFromCart(product)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="productPrice">
+            <p class="smallerText">{{ product.price }}{{ product.currency }}</p>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="productQuantity">
+            <input
+              class="smallerText"
+              type="number"
+              name="quantity"
+              id="cartProductQuantity"
+              min="1"
+              [(ngModel)]="product.quantity"
+              (change)="calculateTotalPrice()"
+            />
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="totalProductPrice">
+            <p class="smallerText">{{ product.price * product.quantity }}{{ product.currency }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="offset-6 col-6 d-flex justify-content-between">
+        <div class="subtotalText">
+          <p class="smallerText">Subtotal:</p>
+        </div>
+        <div class="subtotalValue">
+          <p class="smallerText">{{ totalPrice }}{{ cartProducts[0].currency }}</p>
+        </div>
+      </div>
+      <div class="offset-6 col-6 d-flex justify-content-between bottomBorder">
+        <div class="shippingText">
+          <p class="smallerText">Shipping:</p>
+        </div>
+        <div class="shippingCost">
+          <p class="smallerText">{{ shippingCost === 0 ? 'FREE$' : shippingCost + cartProducts[0].currency}}</p>
+        </div>
+      </div>
+      <div class="offset-6 col-6 d-flex justify-content-between">
+        <div class="totalCartPriceText">
+          <p class="smallerText">Total:</p>
+        </div>
+        <div class="totalCartPriceValue">
+          <p class="smallerText">{{ totalPrice + shippingCost }}{{ cartProducts[0].currency }}</p>
+        </div>
+      </div>
+      <div class="offset-10 col-2 d-flex justify-content-end">
+        <button class="btn btn-dark align-self-end" type="submit">Checkout</button>
+      </div>
+    </div>
   </div>
 </div>
