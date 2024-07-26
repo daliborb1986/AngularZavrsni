@@ -1,0 +1,24 @@
+.headerContainer {
+    height: 600px;
+    background-image: url('/assets/MACRO_PLP_BANNER.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text-size {
+    font-size: 12px;
+}
+.textContainer {
+    background-color: #f8f8f8;
+    border-radius: 20px;
+}
+
+.textCard {
+    width: 250px;
+}
+.columnContainer{
+    flex-basis: 350px;
+}
+.gapSpace {
+    gap: 10px;
+}
