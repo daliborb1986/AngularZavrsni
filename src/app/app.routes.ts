@@ -7,6 +7,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProductOrderComponent } from './product-order/product-order.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'shoppingCart', component: ShoppingCartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  {path: 'productOrder', component: ProductOrderComponent},
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' },
 ];

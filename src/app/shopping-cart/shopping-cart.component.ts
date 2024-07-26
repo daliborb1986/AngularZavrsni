@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shopping.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterLink],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css',
 })
