@@ -7,6 +7,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { RouterLinkActive } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-root',

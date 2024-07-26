@@ -1,42 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="offset-2 col-8 formContainer d-flex justify-content-center">
-      <form>
+      <form [formGroup]="signupForm">
         <div class="form-group">
           <label for="firstName" class="text-size"
             >First Name<span class="redStar">*</span>:</label
           ><br />
-          <input type="text" id="firstName" class="inputSizing text-size mb-3 border-0 border-bottom"/>
+          <input type="text" id="firstName" name="firstName" formControlName="firstName" class="inputSizing text-size mb-3 border-0 border-bottom rounded-0 form-control"/>
         </div>
         <div class="form-group">
           <label class="text-size" for="lastName">Last Name<span class="redStar">*</span>:</label
           ><br />
-          <input type="text" id="lastName" class="inputSizing mb-3 border-0 border-bottom"/>
+          <input type="text" id="lastName" name="lastName" formControlName="lastName" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
         </div>
         <div class="form-group">
           <label class="text-size" for="email">Email address<span class="redStar">*</span>:</label
           ><br />
-          <input type="email" id="email" class="inputSizing mb-3 border-0 border-bottom"/>
+          <input type="email" id="email" name="email" formControlName="email" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
         </div>
         <div class="form-group">
           <label class="text-size" for="phone">Phone Number<span class="redStar">*</span>:</label
           ><br />
-          <input type="number" id="phone" class="inputSizing mb-3 border-0 border-bottom"/>
+          <input type="number" id="phone" name="phone" formControlName="phone" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
         </div>
         <div class="form-group">
           <label class="text-size" for="address">Address<span class="redStar">*</span>:</label
           ><br />
-          <input type="text" id="address" class="inputSizing mb-3 border-0 border-bottom"/>
+          <input type="text" id="address" name="address" formControlName="address" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
         </div>
         <div class="form-group">
           <label class="text-size" for="comment">Comment:</label><br />
-          <textarea id="comment" rows="1" class="inputSizing mb-3 border-0 border-bottom"></textarea>
+          <textarea id="comment" name="comment" formControlName="comment" rows="1" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"></textarea>
         </div>
         <div class="form-group">
           <label class="text-size" for="paymentMethod"
             >Payment Method<span class="redStar">*</span>:</label
           ><br />
-          <select id="paymentMethod" class="inputSizing border-0 border-bottom"></select>
+          <select id="paymentMethod" name="paymentMethod" formControlName="paymentMethod" class="inputSizing border-0 border-bottom rounded-0 form-control"></select>
         </div>
         <div class="formContainer d-flex justify-content-center mt-2">
             <button class="btn btn-dark col-4 btn-sm text-size">Confirm</button>
