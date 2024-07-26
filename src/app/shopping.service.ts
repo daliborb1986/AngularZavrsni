@@ -37,14 +37,6 @@ export class ShoppingService {
   getTotalProducts(): number {
     return this.cart.reduce((total, product) => total + product.quantity, 0);
   }
-
-  private updateTotalItems() {
-    const totalItems = this.cart.reduce(
-      (total, product) => total + product.quantity,
-      0
-    );
-    this.totalItemsSubject.next(totalItems);
-  }
   clearCart() {
     this.cart = [];
     this.cartSubject.next(this.cart);

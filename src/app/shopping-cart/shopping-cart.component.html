@@ -1,17 +1,3 @@
-<!-- <div class="container mt-5">
-  <h2>Shopping Cart</h2>
-  <div *ngIf="cartProducts.length === 0">Your cart is empty.</div>
-  <div *ngIf="cartProducts.length > 0">
-    <div *ngFor="let product of cartProducts">
-      <p>
-        {{ product.title }} - {{ product.price }}
-        {{ product.currency }} (Quantity: {{ product.quantity }})
-      </p>
-    </div>
-    <p>Total Products: {{ getTotalProducts() }}</p>
-  </div>
-</div> -->
-
 <div class="container">
   <div *ngIf="cartProducts.length === 0">
     <h5 class="text-center fw-bold mt-4">Shopping Cart is empty</h5>
