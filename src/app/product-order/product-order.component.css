@@ -10,3 +10,10 @@
 .borderLine{
     border-bottom: 1px solid #cdced1;
 }
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.warningMessage {
+    color: red;
+    font-size: 12px;
+}

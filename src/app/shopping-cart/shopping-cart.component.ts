@@ -39,7 +39,7 @@ export class ShoppingCartComponent implements OnInit {
   removeFromCart(product: Product) {
     this.shoppingService.removeFromCart(product);
   }
-  // updateQuantity(product: Product, quantity: number): void {
+  // updateQuantity(product: Product, quantity: number) {
   //   this.shoppingService.updateQuantity(product.id, quantity);
   // }
 }

@@ -14,8 +14,6 @@ export class ShoppingService {
 
   constructor() {}
 
-  
-
   addToCart(product: Product, quantity: number) {
     const existingProduct = this.cart.find((p) => p.id === product.id);
     if (existingProduct) {
@@ -26,29 +24,32 @@ export class ShoppingService {
     }
     this.cartSubject.next(this.cart);
   }
- 
+
   removeFromCart(product: Product): void {
-    this.cart = this.cart.filter(p => p.id !== product.id);
+    this.cart = this.cart.filter((p) => p.id !== product.id);
     this.cartSubject.next(this.cart);
   }
-  
+
   updateCart(products: Product[]) {
     this.cart = products;
-    this.cartSubject.next(this.cart)
+    this.cartSubject.next(this.cart);
   }
   getTotalProducts(): number {
     return this.cart.reduce((total, product) => total + product.quantity, 0);
   }
-  // updateQuantity(productId: number, quantity: number): void {
-  //   const product = this.cart.find(p => p.id === productId);
-  //   if (product) {
-  //     product.quantity = quantity;
-  //     this.cartSubject.next([...this.cart]);
-  //     this.updateTotalItems();
-  //   }
-  // }
+
   private updateTotalItems() {
-    const totalItems = this.cart.reduce((total, product) => total + product.quantity, 0);
+    const totalItems = this.cart.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
     this.totalItemsSubject.next(totalItems);
+  }
+  clearCart() {
+    this.cart = [];
+    this.cartSubject.next(this.cart);
+  }
+  getCart() {
+    return this.cart;
   }
 }

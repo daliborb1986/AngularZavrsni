@@ -1,45 +1,97 @@
 <div class="container">
   <div class="row">
     <div class="offset-2 col-8 formContainer d-flex justify-content-center">
-      <form [formGroup]="signupForm">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="firstName" class="text-size"
             >First Name<span class="redStar">*</span>:</label
           ><br />
-          <input type="text" id="firstName" name="firstName" formControlName="firstName" class="inputSizing text-size mb-3 border-0 border-bottom rounded-0 form-control"/>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            formControlName="firstName"
+            class="inputSizing text-size mb-3 border-0 border-bottom rounded-0 form-control"
+          />
+          <span class="warningMessage" *ngIf="!signupForm.controls['firstName'].valid && signupForm.controls['firstName'].touched">First name must be filled.</span>
         </div>
         <div class="form-group">
-          <label class="text-size" for="lastName">Last Name<span class="redStar">*</span>:</label
+          <label class="text-size" for="lastName"
+            >Last Name<span class="redStar">*</span>:</label
           ><br />
-          <input type="text" id="lastName" name="lastName" formControlName="lastName" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            formControlName="lastName"
+            class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"
+          /><span class="warningMessage" *ngIf="!signupForm.controls['lastName'].valid && signupForm.controls['lastName'].touched">Last name must be filled.</span>
         </div>
         <div class="form-group">
-          <label class="text-size" for="email">Email address<span class="redStar">*</span>:</label
+          <label class="text-size" for="email"
+            >Email address<span class="redStar">*</span>:</label
           ><br />
-          <input type="email" id="email" name="email" formControlName="email" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            formControlName="email"
+            class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"
+          /><span class="warningMessage" *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">E-mail must be filled.</span>
         </div>
         <div class="form-group">
-          <label class="text-size" for="phone">Phone Number<span class="redStar">*</span>:</label
+          <label class="text-size" for="phone"
+            >Phone Number<span class="redStar">*</span>:</label
           ><br />
-          <input type="number" id="phone" name="phone" formControlName="phone" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            formControlName="phone"
+            class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"
+          /><span class="warningMessage" *ngIf="!signupForm.controls['phone'].valid && signupForm.controls['phone'].touched">Phone must be filled.</span>
         </div>
         <div class="form-group">
-          <label class="text-size" for="address">Address<span class="redStar">*</span>:</label
+          <label class="text-size" for="address"
+            >Address<span class="redStar">*</span>:</label
           ><br />
-          <input type="text" id="address" name="address" formControlName="address" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"/>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            formControlName="address"
+            class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"
+          />
+          <span class="warningMessage" *ngIf="!signupForm.controls['address'].valid && signupForm.controls['address'].touched">Address must be filled.</span>
         </div>
         <div class="form-group">
           <label class="text-size" for="comment">Comment:</label><br />
-          <textarea id="comment" name="comment" formControlName="comment" rows="1" class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"></textarea>
+          <textarea
+            id="comment"
+            name="comment"
+            formControlName="comment"
+            rows="1"
+            class="inputSizing mb-3 border-0 border-bottom rounded-0 form-control"
+          ></textarea>
         </div>
         <div class="form-group">
           <label class="text-size" for="paymentMethod"
             >Payment Method<span class="redStar">*</span>:</label
           ><br />
-          <select id="paymentMethod" name="paymentMethod" formControlName="paymentMethod" class="inputSizing border-0 border-bottom rounded-0 form-control"></select>
+          <select
+            id="paymentMethod"
+            name="paymentMethod"
+            formControlName="paymentMethod"
+            class="inputSizing border-0 border-bottom rounded-0 form-control text-size"
+          >
+            <option class="text-size" *ngFor="let method of paymentMethod" [value]="method">
+              {{ method }}
+            </option>
+          </select>
+          <span class="warningMessage" *ngIf="!signupForm.controls['paymentMethod'].valid && signupForm.controls['paymentMethod'].touched">Please select one payment option.</span>
         </div>
         <div class="formContainer d-flex justify-content-center mt-2">
-            <button class="btn btn-dark col-4 btn-sm text-size">Confirm</button>
+          <button class="btn btn-dark col-4 btn-sm text-size" type="submit">Confirm</button>
         </div>
       </form>
     </div>
