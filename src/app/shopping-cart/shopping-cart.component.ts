@@ -25,12 +25,18 @@ export class ShoppingCartComponent implements OnInit {
       this.calculateTotalPrice();
     });
   }
-  calculateTotalPrice() {
+  calculateTotalPrice():void {
     this.totalPrice = this.cartProducts.reduce(
       (total, product) => total + product.price * product.quantity,
       0
     );
     this.shippingCost = this.totalPrice > 100 ? 0 : 100;
+  }
+  onQuantityChange(product:Product, quantity: number):void {
+    product.quantity = quantity;
+    this.shoppingService.updateProductQuantity(product.id, quantity).subscribe(() => {
+      this.calculateTotalPrice();
+    })
   }
 
   getTotalProducts() {

@@ -42,8 +42,9 @@
               name="quantity"
               id="cartProductQuantity"
               min="1"
+              max="15"
               [(ngModel)]="product.quantity"
-              (change)="calculateTotalPrice()"
+              (change)="onQuantityChange(product,product.quantity)"
             />
           </div>
         </div>

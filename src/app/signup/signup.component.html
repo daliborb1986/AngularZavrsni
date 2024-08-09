@@ -5,7 +5,7 @@
         class="formContainer d-flex justify-content-center align-items-center"
       >
         <div class="formContainerInput">
-          <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+          <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
             <div class="formTitle text-center">
               <h5 class="fw-bold">Sign Up</h5>
             </div>
@@ -50,7 +50,8 @@
                 ngModel
                 name="email"
                 id="email"
-                required email
+                required
+                email
                 #email="ngModel"
               />
               <span class="help-block" *ngIf="!email.valid && email.touched"
@@ -91,6 +92,25 @@
           </form>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="registrationModal"
+  tabindex="-1"
+  aria-labelledby="registrationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog customBorder">
+    <div class="modal-content rounded-0 d-flex align-items-center p-5">
+      <h6 class="modal-title mt-3 mb-5 fw-bold" id="registrationModalLabel">
+        Thank you for Registering
+      </h6>
+
+      <button type="button" class="btn btn-dark mt-4 mb-3" style="width: 100px" data-bs-dismiss="modal">
+        Continue
+      </button>
     </div>
   </div>
 </div>

@@ -1,0 +1,23 @@
+{
+  "cart": [
+    {
+      "id": 5,
+      "categoryId": "sympathy",
+      "title": "Long Stem Pink Rose Bouquet",
+      "currency": "$",
+      "price": 200,
+      "imgSrc": "/assets/products/simpathy/product5.PNG",
+      "description": "Enjoy the classic beauty of the rose with a playful twist in our Long Stem Pink Rose Bouquet. This arrangement features all pink roses that will look especially pretty in the hands of those you cherish most.",
+      "quantity": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "0ad1",
+      "firstName": "dalibor",
+      "surname": "belusic",
+      "email": "daliborb1986@gmail.com",
+      "password": "dalibor"
+    }
+  ]
+}

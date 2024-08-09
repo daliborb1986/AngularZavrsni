@@ -273,7 +273,7 @@ export class FlowerService {
     return this.products.filter((product) => product.categoryId === category);
   }
 
-  getProductByTitle(title: string): Product | undefined {
-    return this.products.find((product) => product.title === title);
+  getProductById(id: number): Product | undefined {
+    return this.products.find((product) => product.id === id);
   }
 }
