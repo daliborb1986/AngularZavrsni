@@ -28,7 +28,7 @@ export class ShoppingService {
   }
 
   addToCart(product: Product, quantity: number) {
-    const existingProduct = this.cart.find((p) => p.id === product.id);
+    const existingProduct = this.cart.find((p) => p.id === product.id.toString());
     if (existingProduct) {
       existingProduct.quantity += quantity;
       this.updateProductQuantity(
@@ -37,6 +37,7 @@ export class ShoppingService {
       ).subscribe();
     } else {
       product.quantity = quantity;
+      product.id = product.id.toString()
       // this.cart.push(product);
       this.http.post<Product>(this.url, product).subscribe(() => {
         // this.cartSubject.next(this.cart);
@@ -48,7 +49,7 @@ export class ShoppingService {
 
   removeFromCart(product: Product): void {
     // this.cart = this.cart.filter((p) => p.id !== product.id);
-    this.http.delete(`http://localhost:3000/cart/${product.id}`).subscribe(() => {
+    this.http.delete(`http://localhost:3000/cart/${product.id.toString()}`).subscribe(() => {
       // this.cartSubject.next(this.cart);
       this.loadCart();
     });
@@ -57,8 +58,8 @@ export class ShoppingService {
     this.totalItemsSubject.next(this.getTotalProducts());
   }
 
-  updateProductQuantity(productId: number, quantity: number): Observable<any> {
-    return this.http.patch(`${this.url}/${productId}`, { quantity });
+  updateProductQuantity(productId: number | string, quantity: number): Observable<any> {
+    return this.http.patch(`${this.url}/${productId.toString()}`, { quantity });
   }
 
   // updateCart(products: Product[]) {

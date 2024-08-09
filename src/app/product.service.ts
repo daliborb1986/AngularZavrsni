@@ -8,7 +8,7 @@ export class FlowerService {
   products: Product[] = [
     new Product(
       'sympathy',
-      1,
+      '1',
       'Beautiful Spirit Basket',
       '$',
       105,
@@ -18,7 +18,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      2,
+      '2',
       'The Spathiphyllum Plant',
       '$',
       80,
@@ -28,7 +28,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      3,
+      '3',
       'Comfort Planter',
       '$',
       66,
@@ -38,7 +38,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      4,
+      '4',
       'Eternal Friendship Bouquet',
       '$',
       100,
@@ -48,7 +48,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      5,
+      '5',
       'Long Stem Pink Rose Bouquet',
       '$',
       200,
@@ -58,7 +58,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      6,
+      '6',
       'Clear Skies Bouquet',
       '$',
       135,
@@ -68,7 +68,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      7,
+      '7',
       'Beyond Blue Bouquet',
       '$',
       92,
@@ -78,7 +78,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      8,
+      '8',
       'Alluring Elegance Bouquet',
       '$',
       115,
@@ -88,7 +88,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      9,
+      '9',
       'Beach House Bouquet',
       '$',
       125,
@@ -98,7 +98,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      10,
+      ' ',
       'Pastel Peace Basket',
       '$',
       105,
@@ -108,7 +108,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      11,
+      '11',
       'Picnic Tulips',
       '$',
       70,
@@ -118,7 +118,7 @@ export class FlowerService {
     ),
     new Product(
       'sympathy',
-      12,
+      '12',
       'Sunshine & Joy Garden',
       '$',
       65,
@@ -128,7 +128,7 @@ export class FlowerService {
     ),
     new Product(
       'anniversary',
-      13,
+      '13',
       'Truly Stunning Bouquet',
       '$',
       108,
@@ -138,7 +138,7 @@ export class FlowerService {
     ),
     new Product(
       'anniversary',
-      14,
+      '14',
       "You're Precious Bouquet",
       '$',
       90,
@@ -148,7 +148,7 @@ export class FlowerService {
     ),
     new Product(
       'anniversary',
-      15,
+      '15',
       'Long Stem Red Rose Bouquet',
       '$',
       200,
@@ -158,7 +158,7 @@ export class FlowerService {
     ),
     new Product(
       'anniversary',
-      16,
+      '16',
       'Pretty in Pink Belgian Chocolate Truffles',
       '$',
       45,
@@ -168,7 +168,7 @@ export class FlowerService {
     ),
     new Product(
       'anniversary',
-      17,
+      '17',
       "Valentine's Day Belgian Chocolate Covered Treat Sampler",
       '$',
       45,
@@ -178,7 +178,7 @@ export class FlowerService {
     ),
     new Product(
       'congratulations',
-      18,
+      '18',
       'Bliss White Orchid',
       '$',
       68,
@@ -188,7 +188,7 @@ export class FlowerService {
     ),
     new Product(
       'congratulations',
-      19,
+      '19',
       'CLASSIC WHITE CALLA LILY',
       '$',
       58,
@@ -198,7 +198,7 @@ export class FlowerService {
     ),
     new Product(
       'congratulations',
-      20,
+      '20',
       'SPRING FLING TULIP BULB GARDEN',
       '$',
       45,
@@ -208,7 +208,7 @@ export class FlowerService {
     ),
     new Product(
       'congratulations',
-      21,
+      '21',
       'CONGRATS BELGIAN CHOCOLATE COVERED BERRY GRAM',
       '$',
       55,
@@ -218,7 +218,7 @@ export class FlowerService {
     ),
     new Product(
       'getwell',
-      22,
+      '22',
       'Fiesta Bouquet',
       '$',
       95,
@@ -228,7 +228,7 @@ export class FlowerService {
     ),
     new Product(
       'getwell',
-      23,
+      '23',
       'Alluring Elegance Bouquet',
       '$',
       115,
@@ -238,7 +238,7 @@ export class FlowerService {
     ),
     new Product(
       'getwell',
-      24,
+      '24',
       'Beyond Blue Bouquet',
       '$',
       92,
@@ -248,7 +248,7 @@ export class FlowerService {
     ),
     new Product(
       'getwell',
-      25,
+      '25',
       'Clear Skies Bouquet',
       '$',
       135,
@@ -259,7 +259,7 @@ export class FlowerService {
 
     new Product(
       'getwell',
-      26,
+      '26',
       'Light of My Life Bouquet',
       '$',
       80,
@@ -273,7 +273,7 @@ export class FlowerService {
     return this.products.filter((product) => product.categoryId === category);
   }
 
-  getProductById(id: number): Product | undefined {
+  getProductById(id: string): Product | undefined {
     return this.products.find((product) => product.id === id);
   }
 }

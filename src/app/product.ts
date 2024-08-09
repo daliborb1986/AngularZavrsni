@@ -1,6 +1,6 @@
 export class Product {
   public categoryId: string;
-  public id: number;
+  public id: string;
   public title: string;
   public currency: string;
   public price: number;
@@ -10,7 +10,7 @@ export class Product {
 
   constructor(
     categoryId: string,
-    id: number,
+    id: string,
     title: string,
     currency: string,
     price: number,

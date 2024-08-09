@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const category = params.get('category');
-      const id = +params.get('id')!;
+      const id = params.get('id')!;
       if (category) {
         // const title = encodedTitle.replace(/-/g, ' ');
         this.productsInCategory =
