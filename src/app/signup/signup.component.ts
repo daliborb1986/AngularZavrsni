@@ -1,12 +1,12 @@
 import { ShopComponent } from './../shop/shop.component';
-import { AuthServiceService } from './../auth-service.service';
+import { AuthServiceService } from '../services/auth-service.service';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink,Router } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
-declare var  bootstrap: any;
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +18,10 @@ declare var  bootstrap: any;
 export class SignupComponent {
   @ViewChild('myForm') signupForm: NgForm;
 
-  constructor(private authService: AuthServiceService, private router: Router) {}
+  constructor(
+    private authService: AuthServiceService,
+    private router: Router
+  ) {}
 
   ngAfterViewInit(): void {
     const modalElement = document.getElementById('registrationModal');
@@ -32,12 +35,12 @@ export class SignupComponent {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       this.authService.register(form.value).subscribe(() => {
-        if(this.registrationModal){
-          this.registrationModal.show()
+        if (this.registrationModal) {
+          this.registrationModal.show();
         }
         this.authService.setAuthenticationStatus(true);
         this.signupForm.reset();
-        this.router.navigate([''])
+        this.router.navigate(['']);
       });
     }
   }

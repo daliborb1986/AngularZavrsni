@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FlowerService } from '../product.service';
-import { CategoryService } from '../category.service';
+import { FlowerService } from '../services/product.service';
+import { CategoryService } from '../services/category.service';
 import { Category } from '../category';
 import { Product } from '../product';
 import { RouterLink } from '@angular/router';
@@ -28,27 +28,27 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = this.categoryService.getCategories();
-    this.route.paramMap.subscribe(params => {
-      const categoryName = params.get('category')
-      if(categoryName) {
-        this.selectCategoryByName(categoryName)
+    this.route.paramMap.subscribe((params) => {
+      const categoryName = params.get('category');
+      if (categoryName) {
+        this.selectCategoryByName(categoryName);
+      } else {
+        this.selectCategory(this.categories[0]);
       }
-      else {
-        this.selectCategory(this.categories[0])
-      }
-    })
+    });
   }
 
   selectCategory(category: Category): void {
     console.log('Selected Category:', category);
-    this.router.navigate(['/shop', category.name.toLowerCase()])
+    this.router.navigate(['/shop', category.name.toLowerCase()]);
   }
   selectCategoryByName(categoryName: string): void {
-    const category = this.categories.find(c => c.name.toLowerCase() === categoryName.toLowerCase())
-    if(category) {
+    const category = this.categories.find(
+      (c) => c.name.toLowerCase() === categoryName.toLowerCase()
+    );
+    if (category) {
       this.selectedCategory = category;
       this.products = this.productService.getProductByCategory(category.id);
     }
   }
 }
-

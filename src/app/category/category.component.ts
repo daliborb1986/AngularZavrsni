@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { FlowerService } from '../product.service';
+import { FlowerService } from '../services/product.service';
 import { Product } from '../product';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from "../footer/footer.component";
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-category',
   standalone: true,
@@ -23,9 +23,9 @@ export class CategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.category = params.get('category')!;
-      this.products = this.productService.getProductByCategory(this.category)
-    })
+      this.products = this.productService.getProductByCategory(this.category);
+    });
   }
 }

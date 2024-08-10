@@ -1,10 +1,10 @@
-import { AuthServiceService } from './../auth-service.service';
+import { AuthServiceService } from '../services/auth-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FlowerService } from '../product.service';
+import { FlowerService } from '../services/product.service';
 import { Product } from '../product';
 import { CommonModule } from '@angular/common';
-import { ShoppingService } from '../shopping.service';
+import { ShoppingService } from '../services/shopping.service';
 import { FormsModule } from '@angular/forms';
 
 declare var bootstrap: any;

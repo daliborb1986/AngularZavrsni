@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { Product } from '../product';
 import { BehaviorSubject, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
