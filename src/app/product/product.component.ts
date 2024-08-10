@@ -6,7 +6,6 @@ import { Product } from '../product';
 import { CommonModule } from '@angular/common';
 import { ShoppingService } from '../shopping.service';
 import { FormsModule } from '@angular/forms';
-// import { HttpClientModule } from '@angular/common/http'
 
 declare var bootstrap:any;
 
@@ -36,7 +35,6 @@ export class ProductComponent implements OnInit {
       const category = params.get('category');
       const id = params.get('id')!;
       if (category) {
-        // const title = encodedTitle.replace(/-/g, ' ');
         this.productsInCategory =
           this.productService.getProductByCategory(category);
         this.product = this.productService.getProductById(id);
@@ -80,8 +78,6 @@ export class ProductComponent implements OnInit {
       modal.show()
     }
 
-    // addToCart(product: Product, quantity:number): void {
-    //   this.shoppingService.addToCart(product,quantity)
   }
   onlogin() {
     this.router.navigate(['login'])

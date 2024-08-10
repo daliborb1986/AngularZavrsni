@@ -22,7 +22,11 @@ export class ProductOrderComponent implements OnInit {
   signupForm: FormGroup;
   paymentMethod: string[] = ['Credit Cart', 'PayPal', 'Payment od Delivery'];
 
-  constructor(public fb: FormBuilder, private shoppingService: ShoppingService, private router: Router) {}
+  constructor(
+    public fb: FormBuilder,
+    private shoppingService: ShoppingService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -36,9 +40,12 @@ export class ProductOrderComponent implements OnInit {
     });
   }
   onSubmit() {
-    if(this.signupForm.valid) {
-      this.shoppingService.clearCart();
-      this.router.navigate([''])
+    if (this.signupForm.valid) {
+      this.shoppingService.clearCart().subscribe(() => {
+        this.router.navigate(['']);
+      });
+    } else {
+      this.signupForm.markAllAsTouched();
     }
   }
 }

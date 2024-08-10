@@ -9,7 +9,8 @@
             <div class="formTitle text-center">
               <h5>Log In</h5>
               <p class="titleText">
-                New to this site? <span><a id="signUp" routerLink="/signup">Sign Up</a></span>
+                New to this site?
+                <span><a id="signUp" routerLink="/signup">Sign Up</a></span>
               </p>
             </div>
 
@@ -22,10 +23,13 @@
                 ngModel
                 name="email"
                 id="email"
-                required email
+                required
+                email
                 #email="ngModel"
               />
-              <span class="help-block" *ngIf="!email.valid && email.touched">Email is required <br></span>
+              <span class="help-block" *ngIf="!email.valid && email.touched"
+                >Email is required and must be valid email address <br
+              /></span>
 
               <label class="titleText" for="password">Password</label><br />
               <input
@@ -39,11 +43,29 @@
                 minlength="5"
                 #password="ngModel"
               />
-              <span class="help-block" *ngIf="!password.valid && password.touched">Password id required</span>
+
+              <span
+                class="help-block"
+                *ngIf="!password.valid && password.touched"
+                >Password is required</span
+              >
+              <br />
+              <span
+                class="help-block"
+                *ngIf="password.errors?.['minlength'] && password.touched"
+                >Password must be minimum 5 characters long</span
+              >
             </div>
             <br />
             <p class="titleText">Forgot password?</p>
-            <button id="btnLogIn" type="submit" [disabled]="!myForm.valid" class="btn btn-light w-100 titleText border-0">Log In</button>
+            <button
+              id="btnLogIn"
+              type="submit"
+              [disabled]="!myForm.valid"
+              class="btn btn-light w-100 titleText border-0"
+            >
+              Log In
+            </button>
           </form>
         </div>
       </div>

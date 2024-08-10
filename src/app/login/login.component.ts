@@ -34,7 +34,5 @@ export class LoginComponent {
           }
         });
     }
-    // console.log(this.signupForm)
-    // this.signupForm.reset()
   }
 }

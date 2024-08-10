@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, forkJoin } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +28,9 @@ export class ShoppingService {
   }
 
   addToCart(product: Product, quantity: number) {
-    const existingProduct = this.cart.find((p) => p.id === product.id.toString());
+    const existingProduct = this.cart.find(
+      (p) => p.id === product.id.toString()
+    );
     if (existingProduct) {
       existingProduct.quantity += quantity;
       this.updateProductQuantity(
@@ -37,45 +39,47 @@ export class ShoppingService {
       ).subscribe();
     } else {
       product.quantity = quantity;
-      product.id = product.id.toString()
-      // this.cart.push(product);
+      product.id = product.id.toString();
       this.http.post<Product>(this.url, product).subscribe(() => {
-        // this.cartSubject.next(this.cart);
         this.loadCart();
       });
     }
-    // this.cartSubject.next(this.cart);
   }
 
   removeFromCart(product: Product): void {
-    // this.cart = this.cart.filter((p) => p.id !== product.id);
-    this.http.delete(`http://localhost:3000/cart/${product.id.toString()}`).subscribe(() => {
-      // this.cartSubject.next(this.cart);
-      this.loadCart();
-    });
+    this.http
+      .delete(`http://localhost:3000/cart/${product.id.toString()}`)
+      .subscribe(() => {
+        this.loadCart();
+      });
   }
   calculateTotalItems() {
     this.totalItemsSubject.next(this.getTotalProducts());
   }
 
-  updateProductQuantity(productId: number | string, quantity: number): Observable<any> {
+  updateProductQuantity(
+    productId: number | string,
+    quantity: number
+  ): Observable<any> {
     return this.http.patch(`${this.url}/${productId.toString()}`, { quantity });
   }
 
-  // updateCart(products: Product[]) {
-  //   this.cart = products;
-  //   this.cartSubject.next(this.cart);
-  // }
   getTotalProducts(): number {
     return this.cart.reduce((total, product) => total + product.quantity, 0);
   }
-  clearCart() {
-    this.cart = [];
-    this.cartSubject.next(this.cart);
-    this.http.delete(this.url).subscribe(() => {
-      this.calculateTotalItems();
-    });
+
+  clearCart(): Observable<any> {
+    return forkJoin(
+      this.cart.map((item) => this.http.delete(`${this.url}/${item.id}`))
+    ).pipe(
+      tap(() => {
+        this.cart = [];
+        this.cartSubject.next(this.cart);
+        this.calculateTotalItems();
+      })
+    );
   }
+
   getCart() {
     return this.cart;
   }

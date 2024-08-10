@@ -21,7 +21,6 @@ export class SignupComponent {
   constructor(private authService: AuthServiceService, private router: Router) {}
 
   ngAfterViewInit(): void {
-    // Initialize the modal after the view is initialized
     const modalElement = document.getElementById('registrationModal');
     if (modalElement) {
       this.registrationModal = new bootstrap.Modal(modalElement);
@@ -33,10 +32,6 @@ export class SignupComponent {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       this.authService.register(form.value).subscribe(() => {
-        // const modal = new bootstrap.Modal(
-        //   document.getElementById('registrationModal')!
-        // );
-        // modal.show();
         if(this.registrationModal){
           this.registrationModal.show()
         }

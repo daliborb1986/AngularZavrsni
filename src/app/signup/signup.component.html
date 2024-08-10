@@ -27,6 +27,11 @@
                 *ngIf="!firstName.valid && firstName.touched"
                 >Name is required.<br
               /></span>
+              <span
+                class="help-block"
+                *ngIf="firstName.errors?.['minlength'] && firstName.touched"
+                >Name must be at least 5 characters long.<br
+              /></span>
 
               <label for="surname" class="titleText">Last Name</label>
               <input
@@ -42,6 +47,11 @@
               <span class="help-block" *ngIf="!surname.valid && surname.touched"
                 >Surname is required.<br
               /></span>
+              <span
+                class="help-block"
+                *ngIf="surname.errors?.['minlength'] && firstName.touched"
+                >Last name must be at least 5 characters long.<br
+              /></span>
 
               <label class="titleText" for="email">Email</label> <br />
               <input
@@ -55,7 +65,7 @@
                 #email="ngModel"
               />
               <span class="help-block" *ngIf="!email.valid && email.touched"
-                >Email is required <br
+                >Email is required and must be valid email address<br
               /></span>
 
               <label class="titleText" for="password">Password</label><br />
@@ -73,7 +83,12 @@
               <span
                 class="help-block"
                 *ngIf="!password.valid && password.touched"
-                >Password id required</span
+                >Password is required</span
+              ><br />
+              <span
+                class="help-block"
+                *ngIf="password.errors?.['minlength'] && password.touched"
+                >Password must be minimum 5 characters long</span
               >
             </div>
             <br />
@@ -108,7 +123,12 @@
         Thank you for Registering
       </h6>
 
-      <button type="button" class="btn btn-dark mt-4 mb-3" style="width: 100px" data-bs-dismiss="modal">
+      <button
+        type="button"
+        class="btn btn-dark mt-4 mb-3"
+        style="width: 100px"
+        data-bs-dismiss="modal"
+      >
         Continue
       </button>
     </div>

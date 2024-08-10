@@ -14,8 +14,7 @@ import { ShoppingService } from '../shopping.service';
 })
 export class HeaderComponent implements OnInit {
   itemsInCart : number = 0
-  hidden = false
-
+  hidden = false;
   ImagePath: string;
 
   constructor(private shoppingService: ShoppingService) {}
