@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ShoppingService } from '../shopping.service';
 import { FormsModule } from '@angular/forms';
 
-declare var bootstrap:any;
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-product',
@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
     private router: Router,
     private productService: FlowerService,
     private shoppingService: ShoppingService,
-    private authService: AuthServiceService,
+    private authService: AuthServiceService
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +39,10 @@ export class ProductComponent implements OnInit {
           this.productService.getProductByCategory(category);
         this.product = this.productService.getProductById(id);
 
-        this.currentUrl = this.router.url;
+        if (this.product) {
+        }
+        const productTitle = this.product?.title.replace(/\s+/g, ' ');
+        this.currentUrl = `/shop/${category}/${productTitle}`;
       }
     });
   }
@@ -72,14 +75,14 @@ export class ProductComponent implements OnInit {
       if (this.product) {
         this.shoppingService.addToCart(this.product, this.quantity);
       }
+    } else {
+      const modal = new bootstrap.Modal(
+        document.getElementById('registerPromptModal')!
+      );
+      modal.show();
     }
-    else {
-      const modal = new bootstrap.Modal(document.getElementById('registerPromptModal')!)
-      modal.show()
-    }
-
   }
   onlogin() {
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 }

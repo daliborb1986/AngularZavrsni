@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
 import { BehaviorSubject, forkJoin } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({

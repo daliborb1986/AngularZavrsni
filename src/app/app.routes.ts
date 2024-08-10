@@ -16,7 +16,6 @@ export const routes: Routes = [
   {
     path: 'shop',
     component: ShopComponent,
-    // canActivate: [authGuard],
     children: [
       {
         path: ':category',
