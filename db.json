@@ -7,6 +7,13 @@
       "surname": "Grmaskoski Belusic",
       "email": "daliborb1986@gmail.com",
       "password": "12345"
+    },
+    {
+      "id": "183d",
+      "firstName": "dados",
+      "surname": "belos",
+      "email": "daliborb1986@gmail.com",
+      "password": "dado123"
     }
   ]
 }
